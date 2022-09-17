@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  File.swift
 //  MVVM_Tests
 //
 //  Created by 조상현 on 2022/09/17.
@@ -7,15 +7,13 @@
 
 import Combine
 
-class HomeViewModel: ObservableObject {
-    
-    var didReceiveData: (([Flight]) -> Void)?
+class FlightDetailViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
-    @Published var flights = [Flight]()
+    @Published var detail: FlightDetail?
     
     func getData() {
-        NetworkManager.shared.getData(endPoint: .flight, type: Flight.self)
+        NetworkManager.shared.getData(endPoint: .detail, type: FlightDetail.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -23,8 +21,8 @@ class HomeViewModel: ObservableObject {
                 case .finished:
                     print("Finished")
                 }
-            }    receiveValue: { [weak self] flightsData in
-                self?.flights = flightsData
+            } receiveValue: { [weak self] detail in
+                self?.detail = detail.first
             }
             .store(in: &cancellables)
     }

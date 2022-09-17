@@ -17,6 +17,13 @@
 		DE0A699D28D5A96600AC621B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A699C28D5A96600AC621B /* HomeViewModel.swift */; };
 		DE0A699F28D5A9BD00AC621B /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A699E28D5A9BD00AC621B /* Flight.swift */; };
 		DE0A69A228D5A9FB00AC621B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69A128D5A9FB00AC621B /* NetworkManager.swift */; };
+		DE0A69A528D5C04900AC621B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69A428D5C04900AC621B /* extension.swift */; };
+		DE0A69A828D5C23B00AC621B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69A728D5C23B00AC621B /* Model.swift */; };
+		DE0A69AD28D5C26400AC621B /* FlightDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69AC28D5C26400AC621B /* FlightDetail.swift */; };
+		DE0A69AF28D5C27400AC621B /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69AE28D5C27400AC621B /* FlightDetailView.swift */; };
+		DE0A69B128D5C27C00AC621B /* FlightDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B028D5C27C00AC621B /* FlightDetailViewModel.swift */; };
+		DE0A69B328D5C4AA00AC621B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B228D5C4AA00AC621B /* ContentView.swift */; };
+		DE0A69B528D5C59B00AC621B /* HomeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B428D5C59B00AC621B /* HomeItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,13 @@
 		DE0A699C28D5A96600AC621B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DE0A699E28D5A9BD00AC621B /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		DE0A69A128D5A9FB00AC621B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DE0A69A428D5C04900AC621B /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		DE0A69A728D5C23B00AC621B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DE0A69AC28D5C26400AC621B /* FlightDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetail.swift; sourceTree = "<group>"; };
+		DE0A69AE28D5C27400AC621B /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
+		DE0A69B028D5C27C00AC621B /* FlightDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailViewModel.swift; sourceTree = "<group>"; };
+		DE0A69B228D5C4AA00AC621B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DE0A69B428D5C59B00AC621B /* HomeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +114,12 @@
 		DE0A696D28D5A77800AC621B /* MVVM_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DE0A69A328D5C03E00AC621B /* Util */,
 				DE0A696E28D5A77800AC621B /* MVVM_TestsApp.swift */,
+				DE0A69B228D5C4AA00AC621B /* ContentView.swift */,
 				DE0A69A028D5A9F000AC621B /* Manager */,
 				DE0A699828D5A8F900AC621B /* Home */,
+				DE0A69A628D5C22F00AC621B /* Detail */,
 				DE0A697228D5A77C00AC621B /* Assets.xcassets */,
 				DE0A697428D5A77C00AC621B /* Preview Content */,
 			);
@@ -156,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				DE0A697028D5A77800AC621B /* HomeView.swift */,
+				DE0A69B428D5C59B00AC621B /* HomeItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +192,49 @@
 				DE0A69A128D5A9FB00AC621B /* NetworkManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		DE0A69A328D5C03E00AC621B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A69A428D5C04900AC621B /* extension.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		DE0A69A628D5C22F00AC621B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A69A928D5C23E00AC621B /* Model */,
+				DE0A69AA28D5C24200AC621B /* View */,
+				DE0A69AB28D5C24600AC621B /* ViewModel */,
+				DE0A69A728D5C23B00AC621B /* Model.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		DE0A69A928D5C23E00AC621B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A69AC28D5C26400AC621B /* FlightDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE0A69AA28D5C24200AC621B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A69AE28D5C27400AC621B /* FlightDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE0A69AB28D5C24600AC621B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A69B028D5C27C00AC621B /* FlightDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,10 +367,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE0A69A828D5C23B00AC621B /* Model.swift in Sources */,
+				DE0A69B328D5C4AA00AC621B /* ContentView.swift in Sources */,
 				DE0A697128D5A77800AC621B /* HomeView.swift in Sources */,
+				DE0A69AF28D5C27400AC621B /* FlightDetailView.swift in Sources */,
+				DE0A69B528D5C59B00AC621B /* HomeItemView.swift in Sources */,
 				DE0A699F28D5A9BD00AC621B /* Flight.swift in Sources */,
 				DE0A699D28D5A96600AC621B /* HomeViewModel.swift in Sources */,
+				DE0A69B128D5C27C00AC621B /* FlightDetailViewModel.swift in Sources */,
+				DE0A69A528D5C04900AC621B /* extension.swift in Sources */,
 				DE0A696F28D5A77800AC621B /* MVVM_TestsApp.swift in Sources */,
+				DE0A69AD28D5C26400AC621B /* FlightDetail.swift in Sources */,
 				DE0A69A228D5A9FB00AC621B /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

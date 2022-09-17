@@ -5,22 +5,29 @@
 //  Created by 조상현 on 2022/09/17.
 //
 
+import Foundation
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var viewModel = HomeViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.flights, id: \.self) { value in
+                        NavigationLink(destination: FlightDetailView(flightId: value.id)) {
+                            HomeItemView(flight: value)                            
+                        }
+                        .foregroundColor(.black)
+                    }
+                }
+            }
         }
         .padding()
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+        .onAppear {
+            viewModel.getData()
+        }
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct MVVM_TestsApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            ContentView()
         }
     }
 }
