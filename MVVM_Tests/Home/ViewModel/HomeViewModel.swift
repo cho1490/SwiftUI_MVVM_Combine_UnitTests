@@ -19,8 +19,19 @@ class HomeViewModel: ObservableObject {
     @Published var flights = [Flight]()
     
     func getData() {
-        NetworkManager.shared.getData()
+        NetworkManager.shared.getData(endPoint: .flight, type: Flight.self)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    print("Error is \(error.localizedDescription)")
+                case .finished:
+                    print("Finished")
+                }
+            }
+            receiveValue: { [weak self] flightsData in
+                self?.flights = flightsData
+            }
+            .store(in: &cancellables)
     }
-    
     
 }
