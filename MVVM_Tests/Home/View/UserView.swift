@@ -21,17 +21,6 @@ struct UserView: View {
             Button("Get Data") {
                 viewModel.getData()
             }
-            
-//            ScrollView {
-//                LazyVStack {
-//                    ForEach(viewModel.flights, id: \.self) { value in
-//                        NavigationLink(destination: FlightDetailView(flightId: value.id)) {
-//                            HomeItemView(flight: value)
-//                        }
-//                        .foregroundColor(.black)
-//                    }
-//                }
-//            }
         }
         .padding()
     }

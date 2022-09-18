@@ -127,8 +127,8 @@
 				DE0A69B228D5C4AA00AC621B /* ContentView.swift */,
 				DE0A69A028D5A9F000AC621B /* Manager */,
 				DE0A699828D5A8F900AC621B /* Home */,
-				DE0A69B828D7006000AC621B /* HistroyView */,
-				DE0A69A628D5C22F00AC621B /* Detail */,
+				DE0A69B828D7006000AC621B /* Histroy */,
+				DE0A69A628D5C22F00AC621B /* HistoryDetail */,
 				DE0A697228D5A77C00AC621B /* Assets.xcassets */,
 				DE0A697428D5A77C00AC621B /* Preview Content */,
 			);
@@ -211,7 +211,7 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		DE0A69A628D5C22F00AC621B /* Detail */ = {
+		DE0A69A628D5C22F00AC621B /* HistoryDetail */ = {
 			isa = PBXGroup;
 			children = (
 				DE0A69A928D5C23E00AC621B /* Model */,
@@ -219,7 +219,7 @@
 				DE0A69AB28D5C24600AC621B /* ViewModel */,
 				DE0A69A728D5C23B00AC621B /* Model.swift */,
 			);
-			path = Detail;
+			path = HistoryDetail;
 			sourceTree = "<group>";
 		};
 		DE0A69A928D5C23E00AC621B /* Model */ = {
@@ -246,14 +246,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DE0A69B828D7006000AC621B /* HistroyView */ = {
+		DE0A69B828D7006000AC621B /* Histroy */ = {
 			isa = PBXGroup;
 			children = (
 				DE0A69BB28D7007800AC621B /* Model */,
 				DE0A69BA28D7007400AC621B /* View */,
 				DE0A69B928D7006E00AC621B /* ViewModel */,
 			);
-			path = HistroyView;
+			path = Histroy;
 			sourceTree = "<group>";
 		};
 		DE0A69B928D7006E00AC621B /* ViewModel */ = {

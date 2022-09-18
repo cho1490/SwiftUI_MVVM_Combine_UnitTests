@@ -13,7 +13,15 @@ struct HistoryView: View {
     
     var body: some View {
         VStack {
-            
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.history, id: \.self) { value in
+                        NavigationLink(destination: HistoryDetailView()) {
+                            
+                        }
+                    }
+                }
+            }
         }
         .padding()
         .onAppear {
