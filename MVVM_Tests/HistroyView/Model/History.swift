@@ -5,7 +5,7 @@
 //  Created by 조상현 on 2022/09/17.
 //
 
-struct Flight: Decodable, Identifiable, Hashable {
+struct History: Decodable, Identifiable, Hashable {
     var id: Int
     var fare: Int
     var stops: Int

@@ -2,20 +2,23 @@
 //  HomeViewModel.swift
 //  MVVM_Tests
 //
-//  Created by 조상현 on 2022/09/17.
+//  Created by 조상현 on 2022/09/18.
 //
 
 import Combine
 
-class HomeViewModel: ObservableObject {
+class UserViewModel: ObservableObject {
     
-    var didReceiveData: (([Flight]) -> Void)?
+    let version = "v4"
     
+    @Published var userName: String = ""
+        
     private var cancellables = Set<AnyCancellable>()
-    @Published var flights = [Flight]()
+    @Published var user: User?
     
     func getData() {
-        NetworkManager.shared.getData(endPoint: .flight, type: Flight.self)
+        let endPoint = "\(version)/summoners/by-name/\(userName)"
+        NetworkManager.shared.getData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, type: User.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -23,8 +26,8 @@ class HomeViewModel: ObservableObject {
                 case .finished:
                     print("Finished")
                 }
-            }    receiveValue: { [weak self] flightsData in
-                self?.flights = flightsData
+            } receiveValue: { [weak self] user in
+                self?.user = user.first
             }
             .store(in: &cancellables)
     }

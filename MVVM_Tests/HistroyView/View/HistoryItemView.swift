@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct HomeItemView: View {
+struct HistoryItemView: View {
     
-    let flight: Flight
+    let history: History
     
     var body: some View {
         ZStack {
-            Text("HomeItemView flight.id = \(flight.id)")
+            Text("HistoryItemView history.id = \(history.id)")
         }
     }
     

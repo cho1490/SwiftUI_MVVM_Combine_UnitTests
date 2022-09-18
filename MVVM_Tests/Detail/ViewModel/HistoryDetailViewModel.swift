@@ -7,13 +7,17 @@
 
 import Combine
 
-class FlightDetailViewModel: ObservableObject {
+class HistoryDetailViewModel: ObservableObject {
+        
+    let version = "v5"
     
     private var cancellables = Set<AnyCancellable>()
-    @Published var detail: FlightDetail?
+    @Published var historyDetail: HistoryDetail?
     
-    func getData() {
-        NetworkManager.shared.getData(endPoint: .detail, type: FlightDetail.self)
+    func getData(matchId: String) {
+        let endPoint = "\(version)/matches/\(matchId)"
+        
+        NetworkManager.shared.getData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -21,8 +25,8 @@ class FlightDetailViewModel: ObservableObject {
                 case .finished:
                     print("Finished")
                 }
-            } receiveValue: { [weak self] detail in
-                self?.detail = detail.first
+            } receiveValue: { [weak self] historyDetail in
+                self?.historyDetail = historyDetail.first
             }
             .store(in: &cancellables)
     }

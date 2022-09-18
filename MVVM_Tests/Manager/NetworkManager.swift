@@ -8,16 +8,32 @@
 import Foundation
 import Combine
 
-enum EndPoint: String {
-    case flight
-    case detail
+enum StartPoint: String {
+    case kr
+    case asia
 }
 
+enum MiddlePoint: String {
+    case summoner
+    case match
+}
+    
 enum NetworkError: Error {
     case invalidURL
     case responseError
     case unknown
 }
+
+/*
+ ex) header
+ {
+     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
+     "Accept-Language": "ko,en-US;q=0.9,en;q=0.8",
+     "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+     "Origin": "https://developer.riotgames.com",
+     "X-Riot-Token": "RGAPI-22aadd5d-eac8-4989-938b-8a73dc4a9859"
+ }
+ */
 
 class NetworkManager {
     
@@ -35,13 +51,24 @@ class NetworkManager {
         // code
      }
      */
-    func getData<T: Decodable>(endPoint: EndPoint, id: Int? = nil, type: T.Type) -> Future<[T], Error> {
+    func getData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<[T], Error> {
         return Future<[T], Error> { [weak self] promise in
-            guard let self = self, let url = URL(string: self.baseUrl.appending(endPoint.rawValue).appending(id == nil ? "" : "/\(id ?? 0)")) else {
-                return promise(.failure(NetworkError.invalidURL))
+            var urlString = "https:\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
+            if !parameters.isEmpty {
+                urlString += "?"
+                for param in parameters {
+                    urlString += "\(param.key)=\(param.value)&"
+                }
+                
+                if urlString.last == "&" {
+                    urlString.removeLast()
+                }
             }
             
-            print("URL is \(url.absoluteString)")
+            guard let self = self, let url = URL(string: urlString) else {
+                return promise(.failure(NetworkError.invalidURL))
+            }
+                        
             URLSession.shared.dataTaskPublisher(for: url)
                 .tryMap{ (data, response) -> Data in
                     guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {

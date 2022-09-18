@@ -21,8 +21,8 @@ struct ContentView: View {
                 Color(.yellow)
                     .ignoresSafeArea()
                 
-                HomeView()
-                .navigationTitle("MVVM_Tests")
+                UserView()
+                    .navigationTitle("MVVM_Tests")
             }
             
         }
