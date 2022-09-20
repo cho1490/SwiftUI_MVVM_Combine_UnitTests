@@ -8,8 +8,7 @@
 import Combine
 
 class HistoryViewModel: ObservableObject {
-            
-    // ex) matches/by-puuid/w11f1vxwmiUdHj04AXcydzNyslacNNayFIGWdlA40GOMAYIJfHjbfQx4WfITz4caEHSM3klb-eEj0A/ids?start=0&count=20
+                
     let version = "v5"
     
     var didReceiveData: (([History]) -> Void)?

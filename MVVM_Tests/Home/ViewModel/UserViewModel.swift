@@ -28,6 +28,7 @@ class UserViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] user in
                 self?.user = user.first
+                print("user : \(user)")
             }
             .store(in: &cancellables)
     }
