@@ -17,7 +17,7 @@ class HistoryDetailViewModel: ObservableObject {
     func getData(matchId: String) {
         let endPoint = "\(version)/matches/\(matchId)"
         
-        NetworkManager.shared.getData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
+        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -26,7 +26,7 @@ class HistoryDetailViewModel: ObservableObject {
                     print("Finished")
                 }
             } receiveValue: { [weak self] historyDetail in
-                self?.historyDetail = historyDetail.first
+                self?.historyDetail = historyDetail
             }
             .store(in: &cancellables)
     }

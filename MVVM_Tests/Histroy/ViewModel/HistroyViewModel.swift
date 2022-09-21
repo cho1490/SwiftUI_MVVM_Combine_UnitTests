@@ -24,7 +24,7 @@ class HistoryViewModel: ObservableObject {
             "count": "20"
         ]
         
-        NetworkManager.shared.getData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: parameters, type: History.self)
+        NetworkManager.shared.getMultipleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: parameters, type: History.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):

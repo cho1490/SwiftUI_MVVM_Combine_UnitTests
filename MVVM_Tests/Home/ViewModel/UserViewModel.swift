@@ -18,17 +18,16 @@ class UserViewModel: ObservableObject {
     
     func getData() {
         let endPoint = "\(version)/summoners/by-name/\(userName)"
-        NetworkManager.shared.getData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, type: User.self)
+        NetworkManager.shared.getSingleData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, type: User.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
-                    print("Error is \(error.localizedDescription)")
+                    print("UserViewModel getData Error \(error.localizedDescription)")
                 case .finished:
-                    print("Finished")
+                    print("UserViewModel getData Finished")
                 }
-            } receiveValue: { [weak self] user in
-                self?.user = user.first
-                print("user : \(user)")
+            } receiveValue: { [weak self] user in                
+                self?.user = user                
             }
             .store(in: &cancellables)
     }

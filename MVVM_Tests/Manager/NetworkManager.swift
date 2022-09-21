@@ -51,7 +51,60 @@ class NetworkManager {
         // code
      }
      */
-    func getData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<[T], Error> {
+    func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<T, Error> {
+        return Future<T, Error> { [weak self] promise in
+            var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
+            if !parameters.isEmpty {
+                urlString += "?"
+                for param in parameters {
+                    urlString += "\(param.key)=\(param.value)&"
+                }
+                
+                if urlString.last == "&" {
+                    urlString.removeLast()
+                }
+            }
+            
+            guard let self = self, let url = URL(string: urlString) else {
+                return promise(.failure(NetworkError.invalidURL))
+            }
+            
+            let configurationCustom = URLSessionConfiguration.default
+            configurationCustom.timeoutIntervalForRequest = 30
+            configurationCustom.httpAdditionalHeaders = ["X-Riot-Token": Define.KEY]
+            
+            let sessionWithCustom = URLSession(configuration: configurationCustom)
+            
+            sessionWithCustom.dataTaskPublisher(for: url)
+                .tryMap{ (data, response) -> Data in
+                    print("Data :: \(String(decoding: data, as: UTF8.self))")
+                    guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+                        throw NetworkError.responseError
+                    }
+                    return data
+                }
+                .decode(type: T.self, decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { (completion) in
+                    if case let .failure(error) = completion {
+                        switch error {
+                        case let decodingError as DecodingError:
+                            promise(.failure(decodingError))
+                        case let apiError as NetworkError:
+                            promise(.failure(apiError))
+                        default:
+                            promise(.failure(NetworkError.unknown))
+                        }
+                    }
+                }, receiveValue: { promise(.success($0)) })
+                .store(in: &self.cancellables)
+        }
+    }
+        
+        
+        
+        
+    func getMultipleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<[T], Error> {
         return Future<[T], Error> { [weak self] promise in
             var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
             if !parameters.isEmpty {
@@ -77,8 +130,8 @@ class NetworkManager {
             
             sessionWithCustom.dataTaskPublisher(for: url)
                 .tryMap{ (data, response) -> Data in
+                    print("Data :: \(String(decoding: data, as: UTF8.self))")
                     guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
-                        print("Data error :: \(String(decoding: data, as: UTF8.self))")
                         throw NetworkError.responseError
                     }
                     return data
@@ -97,7 +150,7 @@ class NetworkManager {
                         }
                     }
                 }, receiveValue: { promise(.success($0)) })
-                .store(in: &self.cancellables)            
+                .store(in: &self.cancellables)
         }
     }
     

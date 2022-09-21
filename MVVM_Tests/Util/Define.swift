@@ -7,6 +7,6 @@
 
 class Define {
     
-    static let KEY = "RGAPI-2e28f592-95d8-42a7-abd0-f5659ee3ce35"
+    static let KEY = "RGAPI-3195ae22-0e1c-41c4-a275-4640e4bf05f0"
     
 }
