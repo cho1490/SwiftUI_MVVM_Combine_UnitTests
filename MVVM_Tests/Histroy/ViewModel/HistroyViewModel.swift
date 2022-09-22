@@ -7,16 +7,15 @@
 
 import Combine
 
-class HistoryViewModel: ObservableObject {
+class HistoryViewModel: BaseViewModel {
                 
     let version = "v5"
-    
-    var didReceiveData: (([History]) -> Void)?
-    
-    private var cancellables = Set<AnyCancellable>()
+                
     @Published var history = [History]()
     
     func getData(puuid: String) {
+        loadingSingleton.loading()
+        
         let endPoint = "\(version)/matches/by-puuid/\(puuid)/ids"
         
         let parameters: [String: String] = [
@@ -25,14 +24,16 @@ class HistoryViewModel: ObservableObject {
         ]
         
         NetworkManager.shared.getMultipleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: parameters, type: History.self)
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
                     print("Error is \(error.localizedDescription)")
                 case .finished:
                     print("Finished")
                 }
-            }    receiveValue: { [weak self] history in
+                
+                self?.loadingSingleton.complete()
+            } receiveValue: { [weak self] history in
                 self?.history = history
             }
             .store(in: &cancellables)

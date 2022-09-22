@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var loading = LoadingSingleton.shared
             
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]        
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
     }
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color(.yellow)
-                    .ignoresSafeArea()
-                
-                UserView()
-                    .navigationTitle("MVVM_Tests")
+        ZStack {
+            NavigationView {
+                ZStack {
+                    Color(.yellow)
+                        .ignoresSafeArea()
+                    
+                    UserView()
+                        .navigationTitle("SwiftUI_MVVM_UnitTest")
+                }
             }
             
+            if loading.isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.ultraThickMaterial)
+            }
         }
         .onAppear {
             UITableView.appearance().separatorStyle = .none
