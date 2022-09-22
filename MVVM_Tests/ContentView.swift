@@ -12,7 +12,7 @@ struct ContentView: View {
     @StateObject var loading = LoadingSingleton.shared
             
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]        
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
     }
     
@@ -20,11 +20,11 @@ struct ContentView: View {
         ZStack {
             NavigationView {
                 ZStack {
-                    Color(.yellow)
+                    Color(.blue)
                         .ignoresSafeArea()
                     
                     UserView()
-                        .navigationTitle("SwiftUI_MVVM_UnitTest")
+                        .navigationTitle("Search User")
                 }
             }
             

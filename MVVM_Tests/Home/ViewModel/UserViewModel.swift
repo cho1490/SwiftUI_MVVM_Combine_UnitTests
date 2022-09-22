@@ -27,9 +27,13 @@ class UserViewModel: BaseViewModel {
                     print("UserViewModel getData Finished")
                 }
                 
+                print("1111111")
                 self?.loadingSingleton.complete()
             } receiveValue: { [weak self] user in
                 self?.user = user
+                
+                print("2222222")
+                self?.loadingSingleton.complete()
             }
             .store(in: &cancellables)
     }

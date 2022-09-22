@@ -17,6 +17,10 @@ enum MiddlePoint: String {
     case summoner
     case match
 }
+
+enum MyError: Error {
+    case urlEncoding
+}
     
 enum NetworkError: Error {
     case invalidURL
@@ -54,6 +58,7 @@ class NetworkManager {
     func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<T, Error> {
         return Future<T, Error> { [weak self] promise in
             var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
+            
             if !parameters.isEmpty {
                 urlString += "?"
                 for param in parameters {
@@ -81,6 +86,7 @@ class NetworkManager {
                     guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                         throw NetworkError.responseError
                     }
+                    
                     return data
                 }
                 .decode(type: T.self, decoder: JSONDecoder())
@@ -107,6 +113,8 @@ class NetworkManager {
     func getMultipleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<[T], Error> {
         return Future<[T], Error> { [weak self] promise in
             var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
+            / var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
+            
             if !parameters.isEmpty {
                 urlString += "?"
                 for param in parameters {
@@ -127,7 +135,6 @@ class NetworkManager {
             configurationCustom.httpAdditionalHeaders = ["X-Riot-Token": Define.KEY]
 
             let sessionWithCustom = URLSession(configuration: configurationCustom)
-            
             sessionWithCustom.dataTaskPublisher(for: url)
                 .tryMap{ (data, response) -> Data in
                     print("Data :: \(String(decoding: data, as: UTF8.self))")
@@ -154,6 +161,15 @@ class NetworkManager {
         }
     }
     
+}
+
+extension MyError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .urlEncoding:
+            return NSLocalizedString("Url Encoding Failed", comment: "Url Encoding Failed")
+        }
+    }
 }
 
 extension NetworkError: LocalizedError {
