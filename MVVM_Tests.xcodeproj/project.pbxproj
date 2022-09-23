@@ -17,7 +17,6 @@
 		DE0A699D28D5A96600AC621B /* HistroyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A699C28D5A96600AC621B /* HistroyViewModel.swift */; };
 		DE0A699F28D5A9BD00AC621B /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A699E28D5A9BD00AC621B /* History.swift */; };
 		DE0A69A228D5A9FB00AC621B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69A128D5A9FB00AC621B /* NetworkManager.swift */; };
-		DE0A69A528D5C04900AC621B /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69A428D5C04900AC621B /* extension.swift */; };
 		DE0A69AD28D5C26400AC621B /* HistoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69AC28D5C26400AC621B /* HistoryDetail.swift */; };
 		DE0A69AF28D5C27400AC621B /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69AE28D5C27400AC621B /* HistoryDetailView.swift */; };
 		DE0A69B128D5C27C00AC621B /* HistoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B028D5C27C00AC621B /* HistoryDetailViewModel.swift */; };
@@ -62,7 +61,6 @@
 		DE0A699C28D5A96600AC621B /* HistroyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistroyViewModel.swift; sourceTree = "<group>"; };
 		DE0A699E28D5A9BD00AC621B /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		DE0A69A128D5A9FB00AC621B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		DE0A69A428D5C04900AC621B /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		DE0A69AC28D5C26400AC621B /* HistoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail.swift; sourceTree = "<group>"; };
 		DE0A69AE28D5C27400AC621B /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
 		DE0A69B028D5C27C00AC621B /* HistoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewModel.swift; sourceTree = "<group>"; };
@@ -200,6 +198,7 @@
 		DE0A69A028D5A9F000AC621B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				DE0A69C228DC89B200AC621B /* LoadingSingleton.swift */,
 				DE0A69A128D5A9FB00AC621B /* NetworkManager.swift */,
 			);
 			path = Manager;
@@ -208,9 +207,7 @@
 		DE0A69A328D5C03E00AC621B /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				DE0A69A428D5C04900AC621B /* extension.swift */,
 				DE0A69B628D6F58500AC621B /* Define.swift */,
-				DE0A69C228DC89B200AC621B /* LoadingSingleton.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				DE0A699F28D5A9BD00AC621B /* History.swift in Sources */,
 				DE0A699D28D5A96600AC621B /* HistroyViewModel.swift in Sources */,
 				DE0A69B128D5C27C00AC621B /* HistoryDetailViewModel.swift in Sources */,
-				DE0A69A528D5C04900AC621B /* extension.swift in Sources */,
 				DE0A696F28D5A77800AC621B /* MVVM_TestsApp.swift in Sources */,
 				DE0A69B728D6F58500AC621B /* Define.swift in Sources */,
 				DE0A69AD28D5C26400AC621B /* HistoryDetail.swift in Sources */,

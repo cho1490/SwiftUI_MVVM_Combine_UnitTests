@@ -11,6 +11,6 @@ class BaseViewModel: ObservableObject {
     
     let loadingSingleton = LoadingSingleton.shared        
     
-    var cancellables = Set<AnyCancellable>()
+//    var cancellables = Set<AnyCancellable>()
     
 }

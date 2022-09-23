@@ -12,7 +12,9 @@ class UserViewModel: BaseViewModel {
     let version = "v4"
     
     @Published var userName: String = ""
-    @Published var user: User?
+    @Published var user: User?        
+    
+    private var cancellables = Set<AnyCancellable>()
     
     func getData() {
         loadingSingleton.loading()
@@ -26,13 +28,13 @@ class UserViewModel: BaseViewModel {
                 case .finished:
                     print("UserViewModel getData Finished")
                 }
-                
-                print("1111111")
+
+                print("호출 좀")
                 self?.loadingSingleton.complete()
             } receiveValue: { [weak self] user in
                 self?.user = user
-                
-                print("2222222")
+
+                print("되라")
                 self?.loadingSingleton.complete()
             }
             .store(in: &cancellables)

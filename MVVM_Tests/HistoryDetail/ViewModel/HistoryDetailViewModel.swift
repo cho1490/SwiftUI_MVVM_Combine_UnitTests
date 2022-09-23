@@ -18,20 +18,20 @@ class HistoryDetailViewModel: BaseViewModel {
         
         let endPoint = "\(version)/matches/\(matchId)"
         
-        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure(let error):
-                    print("Error is \(error.localizedDescription)")
-                case .finished:
-                    print("Finished")
-                }
-                
-                self?.loadingSingleton.complete()
-            } receiveValue: { [weak self] historyDetail in
-                self?.historyDetail = historyDetail
-            }
-            .store(in: &cancellables)
+//        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
+//            .sink { [weak self] completion in
+//                switch completion {
+//                case .failure(let error):
+//                    print("Error is \(error.localizedDescription)")
+//                case .finished:
+//                    print("Finished")
+//                }
+//                
+//                self?.loadingSingleton.complete()
+//            } receiveValue: { [weak self] historyDetail in
+//                self?.historyDetail = historyDetail
+//            }
+//            .store(in: &cancellables)
     }
     
 }

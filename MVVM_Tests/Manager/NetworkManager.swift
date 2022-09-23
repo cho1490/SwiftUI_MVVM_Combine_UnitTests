@@ -46,7 +46,6 @@ class NetworkManager {
     // Combine AnyCancellable
     // A type-erasing cancellable object that executes a provided closure when canceled.
     private var cancellables = Set<AnyCancellable>()
-    private let baseUrl = ""
     
     // Combine Future -> final public class Future<Output, Failure> : Publisher where Failure : Error
     /*
@@ -74,14 +73,12 @@ class NetworkManager {
                 return promise(.failure(NetworkError.invalidURL))
             }
             
-            let configurationCustom = URLSessionConfiguration.default
-            configurationCustom.timeoutIntervalForRequest = 30
-            configurationCustom.httpAdditionalHeaders = ["X-Riot-Token": Define.KEY]
-            
-            let sessionWithCustom = URLSession(configuration: configurationCustom)
-            
-            sessionWithCustom.dataTaskPublisher(for: url)
-                .tryMap{ (data, response) -> Data in
+            var request = URLRequest(url: url)
+            let session = URLSession.shared
+            request.httpMethod = "GET"
+            request.addValue(Define.KEY, forHTTPHeaderField: "비밀~")
+            session.dataTaskPublisher(for: request)
+                .tryMap { (data, response) -> Data in
                     print("Data :: \(String(decoding: data, as: UTF8.self))")
                     guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                         throw NetworkError.responseError
@@ -93,6 +90,7 @@ class NetworkManager {
                 .receive(on: RunLoop.main)
                 .sink(receiveCompletion: { (completion) in
                     if case let .failure(error) = completion {
+                        print(".failure(error)")
                         switch error {
                         case let decodingError as DecodingError:
                             promise(.failure(decodingError))
@@ -113,7 +111,6 @@ class NetworkManager {
     func getMultipleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<[T], Error> {
         return Future<[T], Error> { [weak self] promise in
             var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
-            / var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
             
             if !parameters.isEmpty {
                 urlString += "?"
@@ -130,12 +127,11 @@ class NetworkManager {
                 return promise(.failure(NetworkError.invalidURL))
             }
             
-            let configurationCustom = URLSessionConfiguration.default
-            configurationCustom.timeoutIntervalForRequest = 30
-            configurationCustom.httpAdditionalHeaders = ["X-Riot-Token": Define.KEY]
-
-            let sessionWithCustom = URLSession(configuration: configurationCustom)
-            sessionWithCustom.dataTaskPublisher(for: url)
+            var request = URLRequest(url: url)
+            let session = URLSession.shared
+            request.httpMethod = "GET"
+            request.addValue(Define.KEY, forHTTPHeaderField: "X-Riot-Token")
+            session.dataTaskPublisher(for: request)
                 .tryMap{ (data, response) -> Data in
                     print("Data :: \(String(decoding: data, as: UTF8.self))")
                     guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
