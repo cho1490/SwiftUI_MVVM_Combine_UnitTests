@@ -28,17 +28,6 @@ enum NetworkError: Error {
     case unknown
 }
 
-/*
- ex) header
- {
-     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-     "Accept-Language": "ko,en-US;q=0.9,en;q=0.8",
-     "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-     "Origin": "https://developer.riotgames.com",
-     "X-Riot-Token": "RGAPI-22aadd5d-eac8-4989-938b-8a73dc4a9859"
- }
- */
-
 class NetworkManager {
     
     static let shared = NetworkManager()
@@ -76,7 +65,7 @@ class NetworkManager {
             var request = URLRequest(url: url)
             let session = URLSession.shared
             request.httpMethod = "GET"
-            request.addValue(Define.KEY, forHTTPHeaderField: "비밀~")
+            request.addValue(Define.KEY, forHTTPHeaderField: "X-Riot-Token")
             session.dataTaskPublisher(for: request)
                 .tryMap { (data, response) -> Data in
                     print("Data :: \(String(decoding: data, as: UTF8.self))")

@@ -16,6 +16,7 @@ class UserViewModel: BaseViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     
+    
     func getData() {
         loadingSingleton.loading()
         
