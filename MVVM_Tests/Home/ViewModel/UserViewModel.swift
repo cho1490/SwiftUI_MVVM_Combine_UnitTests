@@ -10,14 +10,12 @@ import Combine
 class UserViewModel: BaseViewModel {
             
     let version = "v4"
-    
-    private var cancellables2 = Set<AnyCancellable>()
-    
+            
     @Published var userName: String = ""
-    @Published var user: User?        
+    @Published var user: User?
             
     func getData() {
-//        loadingSingleton.loading()
+        loadingSingleton.loading()
         
         let endPoint = "\(version)/summoners/by-name/\(userName)"
         NetworkManager.shared.getSingleData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, type: User.self)
@@ -35,7 +33,7 @@ class UserViewModel: BaseViewModel {
                 
                 self?.loadingSingleton.complete()
             }
-            .store(in: &cancellables2)
+            .store(in: &cancellables)
     }
     
 }

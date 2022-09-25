@@ -17,21 +17,19 @@ struct ContentView: View {
     }
     
     var body: some View {
-        ZStack {
-            NavigationView {
-                ZStack {
-                    Color(.blue)
-                        .ignoresSafeArea()
-                    
-                    UserView()
-                        .navigationTitle("Search User")
+        NavigationView {
+            ZStack {
+                Color(.blue)
+                    .ignoresSafeArea()
+                
+                UserView()
+                    .navigationTitle("Search User")
+                
+                if loading.isLoading {
+                    ProgressView()
+//                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(.ultraThickMaterial)
                 }
-            }
-            
-            if loading.isLoading {
-                ProgressView()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(.ultraThickMaterial)
             }
         }
         .onAppear {
