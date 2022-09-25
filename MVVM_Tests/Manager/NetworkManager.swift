@@ -32,6 +32,10 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
+    private init() {
+        
+    }
+    
     // Combine AnyCancellable
     // A type-erasing cancellable object that executes a provided closure when canceled.
     private var cancellables = Set<AnyCancellable>()

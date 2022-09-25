@@ -13,15 +13,30 @@ class UserViewModel: BaseViewModel {
     
     @Published var userName: String = ""
     @Published var user: User?        
-    
-    private var cancellables = Set<AnyCancellable>()
-    
-    
+            
     func getData() {
         loadingSingleton.loading()
         
         let endPoint = "\(version)/summoners/by-name/\(userName)"
         NetworkManager.shared.getSingleData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, type: User.self)
+            .handleEvents(receiveSubscription: { (subscription) in
+                print("Receive Subscription")
+            }, receiveOutput: { output in
+                print("Receive Output : \(output)")
+            }, receiveCompletion: { (completion) in
+                print("Receive Completion")
+                switch completion {
+                case .finished:
+                    print("finished")
+                case .failure(let error):
+                    print(error)
+                }
+            }, receiveCancel: {
+//                print("!!! \(self.user?.accountId ?? "ㅠㅠ")")
+                print("Receive Cancel")
+            }, receiveRequest: { demand in
+                print("Receive Request: \(demand)")
+            })
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
