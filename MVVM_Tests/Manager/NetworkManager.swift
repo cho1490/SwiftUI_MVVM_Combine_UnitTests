@@ -32,6 +32,8 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
+    let loadingSingleton = LoadingSingleton.shared
+    
     private init() {
         
     }

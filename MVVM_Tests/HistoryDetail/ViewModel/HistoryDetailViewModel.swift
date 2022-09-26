@@ -14,7 +14,7 @@ class HistoryDetailViewModel: BaseViewModel {
     @Published var historyDetail: HistoryDetail?
     
     func getData(matchId: String) {
-        loadingSingleton.loading()
+//        loadingSingleton.loading()
         
         let endPoint = "\(version)/matches/\(matchId)"
         

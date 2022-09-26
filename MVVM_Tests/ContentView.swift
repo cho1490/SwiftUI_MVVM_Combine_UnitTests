@@ -27,14 +27,9 @@ struct ContentView: View {
                 
                 if loading.isLoading {
                     ProgressView()
-//                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(.ultraThickMaterial)
+                        .frame(width: 200, height: 200)                        
                 }
             }
-        }
-        .onAppear {
-            UITableView.appearance().separatorStyle = .none
-            UITableView.appearance().showsVerticalScrollIndicator = false
         }
     }
 }

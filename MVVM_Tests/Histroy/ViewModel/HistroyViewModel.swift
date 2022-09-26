@@ -14,7 +14,7 @@ class HistoryViewModel: BaseViewModel {
     @Published var history = [History]()
     
     func getData(puuid: String) {
-        loadingSingleton.loading()
+//        loadingSingleton.loading()
         
         let endPoint = "\(version)/matches/by-puuid/\(puuid)/ids"
         
