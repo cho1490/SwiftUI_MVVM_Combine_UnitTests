@@ -27,7 +27,8 @@ struct ContentView: View {
                 
                 if loadingSingleton.isLoading {
                     ProgressView()
-                        .frame(width: 200, height: 200)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(.thinMaterial)
                 }
             }
         }
