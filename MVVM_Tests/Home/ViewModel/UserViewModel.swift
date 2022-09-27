@@ -10,8 +10,6 @@ import Combine
 class UserViewModel: BaseViewModel {
             
     let version = "v4"
-                    
-    private var cancellables = Set<AnyCancellable>()
     
     @Published var userName: String = ""
     @Published var user: User?
@@ -23,25 +21,25 @@ class UserViewModel: BaseViewModel {
     deinit {
          print("deinit")
      }
-            
+                    
     func getData() {
-        print("\(LoadingSingleton.shared.isLoading)")
+        loadingSingleton.loading()
         
         let endPoint = "\(version)/summoners/by-name/\(userName)"
         NetworkManager.shared.getSingleData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, type: User.self)
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
                     print("UserViewModel getData Error \(error.localizedDescription)")
                 case .finished:
                     print("UserViewModel getData Finished")
                 }
-
-                LoadingSingleton.shared.complete()
+                
+                self?.loadingSingleton.complete()
             } receiveValue: { [weak self] user in
                 self?.user = user
-
-                LoadingSingleton.shared.complete()
+                
+                self?.loadingSingleton.complete()
             }
             .store(in: &cancellables)
     }

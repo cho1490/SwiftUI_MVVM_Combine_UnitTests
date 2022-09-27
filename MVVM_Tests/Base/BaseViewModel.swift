@@ -8,10 +8,10 @@
 import Combine
 
 class BaseViewModel: ObservableObject {
-//
-//    let loadingSingleton = LoadingSingleton.shared
+
+    let loadingSingleton = LoadingSingleton.shared
     
-    // Auto cancel when deinit
-//    var cancellables = Set<AnyCancellable>()
+//     Auto cancel when deinit
+    var cancellables = Set<AnyCancellable>()
     
 }

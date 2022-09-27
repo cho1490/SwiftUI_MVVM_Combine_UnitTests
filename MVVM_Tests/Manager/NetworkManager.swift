@@ -31,9 +31,7 @@ enum NetworkError: Error {
 class NetworkManager {
     
     static let shared = NetworkManager()
-    
-    let loadingSingleton = LoadingSingleton.shared
-    
+            
     private init() {
         
     }
@@ -49,7 +47,7 @@ class NetworkManager {
         // code
      }
      */
-    func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<T, Error> {
+    func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<T, Error> {        
         return Future<T, Error> { [weak self] promise in
             var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
             

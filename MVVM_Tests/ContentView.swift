@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var loading = LoadingSingleton.shared
+    @StateObject var loadingSingleton = LoadingSingleton.shared
             
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -25,20 +25,11 @@ struct ContentView: View {
                 UserView()
                     .navigationTitle("Search User")
                 
-                if loading.isLoading {
+                if loadingSingleton.isLoading {
                     ProgressView()
-                        .frame(width: 200, height: 200)                        
+                        .frame(width: 200, height: 200)
                 }
             }
         }
     }
 }
-
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
