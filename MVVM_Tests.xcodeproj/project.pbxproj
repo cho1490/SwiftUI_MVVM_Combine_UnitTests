@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DE0A696F28D5A77800AC621B /* MVVM_TestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A696E28D5A77800AC621B /* MVVM_TestsApp.swift */; };
-		DE0A697128D5A77800AC621B /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A697028D5A77800AC621B /* UserView.swift */; };
+		DE0A697128D5A77800AC621B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A697028D5A77800AC621B /* HomeView.swift */; };
 		DE0A697328D5A77C00AC621B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0A697228D5A77C00AC621B /* Assets.xcassets */; };
 		DE0A697628D5A77C00AC621B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0A697528D5A77C00AC621B /* Preview Assets.xcassets */; };
 		DE0A698028D5A77C00AC621B /* MVVM_TestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A697F28D5A77C00AC621B /* MVVM_TestsTests.swift */; };
@@ -24,10 +24,13 @@
 		DE0A69B528D5C59B00AC621B /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B428D5C59B00AC621B /* HistoryItemView.swift */; };
 		DE0A69B728D6F58500AC621B /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B628D6F58500AC621B /* Define.swift */; };
 		DE0A69BD28D700C300AC621B /* HistroyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69BC28D700C300AC621B /* HistroyView.swift */; };
-		DE0A69BF28D7010400AC621B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69BE28D7010400AC621B /* UserViewModel.swift */; };
+		DE0A69BF28D7010400AC621B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69BE28D7010400AC621B /* HomeViewModel.swift */; };
 		DE0A69C128D7035000AC621B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69C028D7035000AC621B /* User.swift */; };
 		DE0A69C328DC89B200AC621B /* LoadingSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69C228DC89B200AC621B /* LoadingSingleton.swift */; };
 		DE0A69C628DC8AFC00AC621B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69C528DC8AFC00AC621B /* BaseViewModel.swift */; };
+		DE0A69C828E43BED00AC621B /* ToastSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69C728E43BED00AC621B /* ToastSingleton.swift */; };
+		DE0A69CB28E4418B00AC621B /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69CA28E4418B00AC621B /* ToastView.swift */; };
+		DE0A69CE28E4433500AC621B /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69CD28E4433500AC621B /* Text.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +53,7 @@
 /* Begin PBXFileReference section */
 		DE0A696B28D5A77800AC621B /* MVVM_Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0A696E28D5A77800AC621B /* MVVM_TestsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_TestsApp.swift; sourceTree = "<group>"; };
-		DE0A697028D5A77800AC621B /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		DE0A697028D5A77800AC621B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DE0A697228D5A77C00AC621B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE0A697528D5A77C00AC621B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DE0A697B28D5A77C00AC621B /* MVVM_TestsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVM_TestsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,10 +71,13 @@
 		DE0A69B428D5C59B00AC621B /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
 		DE0A69B628D6F58500AC621B /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		DE0A69BC28D700C300AC621B /* HistroyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistroyView.swift; sourceTree = "<group>"; };
-		DE0A69BE28D7010400AC621B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		DE0A69BE28D7010400AC621B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DE0A69C028D7035000AC621B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DE0A69C228DC89B200AC621B /* LoadingSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSingleton.swift; sourceTree = "<group>"; };
 		DE0A69C528DC8AFC00AC621B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		DE0A69C728E43BED00AC621B /* ToastSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastSingleton.swift; sourceTree = "<group>"; };
+		DE0A69CA28E4418B00AC621B /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = ../../../../Downloads/ToastView.swift; sourceTree = "<group>"; };
+		DE0A69CD28E4433500AC621B /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,8 @@
 				DE0A69B228D5C4AA00AC621B /* ContentView.swift */,
 				DE0A69A028D5A9F000AC621B /* Manager */,
 				DE0A69C428DC8AEC00AC621B /* Base */,
+				DE0A69CC28E4431C00AC621B /* Extension */,
+				DE0A69C928E4417A00AC621B /* CustomView */,
 				DE0A699828D5A8F900AC621B /* Home */,
 				DE0A69B828D7006000AC621B /* Histroy */,
 				DE0A69A628D5C22F00AC621B /* HistoryDetail */,
@@ -182,7 +190,7 @@
 		DE0A699A28D5A94B00AC621B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE0A697028D5A77800AC621B /* UserView.swift */,
+				DE0A697028D5A77800AC621B /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,7 +198,7 @@
 		DE0A699B28D5A95300AC621B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DE0A69BE28D7010400AC621B /* UserViewModel.swift */,
+				DE0A69BE28D7010400AC621B /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,8 +206,9 @@
 		DE0A69A028D5A9F000AC621B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				DE0A69C228DC89B200AC621B /* LoadingSingleton.swift */,
 				DE0A69A128D5A9FB00AC621B /* NetworkManager.swift */,
+				DE0A69C228DC89B200AC621B /* LoadingSingleton.swift */,
+				DE0A69C728E43BED00AC621B /* ToastSingleton.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -287,6 +296,22 @@
 				DE0A69C528DC8AFC00AC621B /* BaseViewModel.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		DE0A69C928E4417A00AC621B /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A69CA28E4418B00AC621B /* ToastView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		DE0A69CC28E4431C00AC621B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A69CD28E4433500AC621B /* Text.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,10 +445,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0A69B328D5C4AA00AC621B /* ContentView.swift in Sources */,
-				DE0A697128D5A77800AC621B /* UserView.swift in Sources */,
+				DE0A697128D5A77800AC621B /* HomeView.swift in Sources */,
+				DE0A69C828E43BED00AC621B /* ToastSingleton.swift in Sources */,
 				DE0A69C628DC8AFC00AC621B /* BaseViewModel.swift in Sources */,
 				DE0A69C328DC89B200AC621B /* LoadingSingleton.swift in Sources */,
 				DE0A69AF28D5C27400AC621B /* HistoryDetailView.swift in Sources */,
+				DE0A69CE28E4433500AC621B /* Text.swift in Sources */,
 				DE0A69C128D7035000AC621B /* User.swift in Sources */,
 				DE0A69B528D5C59B00AC621B /* HistoryItemView.swift in Sources */,
 				DE0A699F28D5A9BD00AC621B /* History.swift in Sources */,
@@ -433,7 +460,8 @@
 				DE0A69B728D6F58500AC621B /* Define.swift in Sources */,
 				DE0A69AD28D5C26400AC621B /* HistoryDetail.swift in Sources */,
 				DE0A69A228D5A9FB00AC621B /* NetworkManager.swift in Sources */,
-				DE0A69BF28D7010400AC621B /* UserViewModel.swift in Sources */,
+				DE0A69BF28D7010400AC621B /* HomeViewModel.swift in Sources */,
+				DE0A69CB28E4418B00AC621B /* ToastView.swift in Sources */,
 				DE0A69BD28D700C300AC621B /* HistroyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var loadingSingleton = LoadingSingleton.shared
+    @StateObject var toastSingleton = ToastSingleton.shared
             
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -22,13 +23,21 @@ struct ContentView: View {
                 Color(.blue)
                     .ignoresSafeArea()
                 
-                UserView()
+                HomeView()
                     .navigationTitle("Search User")
                 
                 if loadingSingleton.isLoading {
                     ProgressView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(.thinMaterial)
+                }
+                
+                switch toastSingleton.toastState {
+                case .NONE:
+                    EmptyView()
+                default:
+                    ToastView()
+                        .position()
                 }
             }
         }

@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct UserView: View {
+struct HomeView: View {
     
-    @StateObject var viewModel = UserViewModel()
+    @StateObject var viewModel = HomeViewModel()    
     
     var body: some View {
         VStack {

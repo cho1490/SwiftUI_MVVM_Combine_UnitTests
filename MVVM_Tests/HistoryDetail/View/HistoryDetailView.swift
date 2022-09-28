@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HistoryDetailView: View {
         
-    @ObservedObject var viewModel = HistoryDetailViewModel()    
+    @StateObject var viewModel = HistoryDetailViewModel()    
     
     var body: some View {
         VStack {

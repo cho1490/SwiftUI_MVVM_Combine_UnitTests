@@ -14,24 +14,22 @@ class HistoryDetailViewModel: BaseViewModel {
     @Published var historyDetail: HistoryDetail?
     
     func getData(matchId: String) {
-//        loadingSingleton.loading()
+        loadingSingleton.loading()
         
         let endPoint = "\(version)/matches/\(matchId)"
         
-//        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
-//            .sink { [weak self] completion in
-//                switch completion {
-//                case .failure(let error):
-//                    print("Error is \(error.localizedDescription)")
-//                case .finished:
-//                    print("Finished")
-//                }
-//                
-//                self?.loadingSingleton.complete()
-//            } receiveValue: { [weak self] historyDetail in
-//                self?.historyDetail = historyDetail
-//            }
-//            .store(in: &cancellables)
+        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.toastSingleton.setState(.ERROR, error.localizedDescription)
+                case .finished:
+                    self?.loadingSingleton.complete()
+                }
+            } receiveValue: { [weak self] historyDetail in
+                self?.historyDetail = historyDetail
+            }
+            .store(in: &cancellables)
     }
     
 }

@@ -5,7 +5,7 @@
 //  Created by 조상현 on 2022/09/22.
 //
 
-import SwiftUI
+import Combine
 
 class LoadingSingleton: ObservableObject {
     

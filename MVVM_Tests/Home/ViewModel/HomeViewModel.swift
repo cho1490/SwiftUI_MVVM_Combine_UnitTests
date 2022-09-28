@@ -7,21 +7,14 @@
 
 import Combine
 
-class UserViewModel: BaseViewModel {
+class HomeViewModel: BaseViewModel {
             
     let version = "v4"
     
     @Published var userName: String = ""
     @Published var user: User?
     
-    override init() {
-        print("init")
-    }
-    
-    deinit {
-         print("deinit")
-     }
-                    
+           
     func getData() {
         loadingSingleton.loading()
         
@@ -30,16 +23,12 @@ class UserViewModel: BaseViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    print("UserViewModel getData Error \(error.localizedDescription)")
+                    self?.toastSingleton.setState(.ERROR, error.localizedDescription)
                 case .finished:
-                    print("UserViewModel getData Finished")
+                    self?.loadingSingleton.complete()
                 }
-                
-                self?.loadingSingleton.complete()
             } receiveValue: { [weak self] user in
                 self?.user = user
-                
-                self?.loadingSingleton.complete()
             }
             .store(in: &cancellables)
     }

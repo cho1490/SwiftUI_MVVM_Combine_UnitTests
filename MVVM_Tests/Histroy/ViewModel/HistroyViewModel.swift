@@ -14,7 +14,7 @@ class HistoryViewModel: BaseViewModel {
     @Published var history = [History]()
     
     func getData(puuid: String) {
-//        loadingSingleton.loading()
+        loadingSingleton.loading()
         
         let endPoint = "\(version)/matches/by-puuid/\(puuid)/ids"
         
@@ -23,20 +23,18 @@ class HistoryViewModel: BaseViewModel {
             "count": "20"
         ]
         
-//        NetworkManager.shared.getMultipleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: parameters, type: History.self)
-//            .sink { [weak self] completion in
-//                switch completion {
-//                case .failure(let error):
-//                    print("Error is \(error.localizedDescription)")
-//                case .finished:
-//                    print("Finished")
-//                }
-//                
-//                self?.loadingSingleton.complete()
-//            } receiveValue: { [weak self] history in
-//                self?.history = history
-//            }
-//            .store(in: &cancellables)
+        NetworkManager.shared.getMultipleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: parameters, type: History.self)
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.toastSingleton.setState(.ERROR, error.localizedDescription)                    
+                case .finished:
+                    self?.loadingSingleton.complete()
+                }
+            } receiveValue: { [weak self] history in
+                self?.history = history
+            }
+            .store(in: &cancellables)
     }
     
 }
