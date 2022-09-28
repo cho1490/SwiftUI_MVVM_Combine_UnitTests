@@ -16,7 +16,11 @@ struct ContentView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
     }
-    
+        
+}
+
+extension ContentView {
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -42,4 +46,5 @@ struct ContentView: View {
             }
         }
     }
+    
 }
