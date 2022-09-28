@@ -15,7 +15,7 @@ class HomeViewModel: BaseViewModel {
     
     @Published var user: User?
     @Published var isUser: Bool = false
-           
+        
     func getData() {
         user = nil
         isUser = false

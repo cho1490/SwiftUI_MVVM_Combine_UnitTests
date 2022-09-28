@@ -12,6 +12,10 @@ struct HistoryView: View {
     @StateObject var viewModel = HistoryViewModel()
     
     var user: User
+            
+}
+
+extension HistoryView {
     
     var body: some View {
         VStack {

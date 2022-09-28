@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject var viewModel = HomeViewModel()    
+    @StateObject var viewModel = HomeViewModel()
         
 }
 

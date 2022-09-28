@@ -27,7 +27,7 @@ class HistoryViewModel: BaseViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    self?.toastSingleton.setState(.ERROR, error.localizedDescription)                    
+                    self?.toastSingleton.setState(.ERROR, error.localizedDescription)
                 case .finished:
                     self?.toastSingleton.setState(.INFORMATION, "성공!")
                 }
