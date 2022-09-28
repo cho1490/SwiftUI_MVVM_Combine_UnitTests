@@ -29,8 +29,10 @@ class HistoryViewModel: BaseViewModel {
                 case .failure(let error):
                     self?.toastSingleton.setState(.ERROR, error.localizedDescription)                    
                 case .finished:
-                    self?.loadingSingleton.complete()
+                    self?.toastSingleton.setState(.INFORMATION, "성공!")
                 }
+                
+                self?.loadingSingleton.complete()
             } receiveValue: { [weak self] history in
                 self?.history = history
             }

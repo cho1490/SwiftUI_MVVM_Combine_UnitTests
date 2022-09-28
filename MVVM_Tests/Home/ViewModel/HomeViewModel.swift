@@ -13,7 +13,6 @@ class HomeViewModel: BaseViewModel {
     
     @Published var userName: String = ""
     @Published var user: User?
-    
            
     func getData() {
         loadingSingleton.loading()
@@ -25,8 +24,10 @@ class HomeViewModel: BaseViewModel {
                 case .failure(let error):
                     self?.toastSingleton.setState(.ERROR, error.localizedDescription)
                 case .finished:
-                    self?.loadingSingleton.complete()
+                    self?.toastSingleton.setState(.INFORMATION, "성공!")
                 }
+                
+                self?.loadingSingleton.complete()
             } receiveValue: { [weak self] user in
                 self?.user = user
             }

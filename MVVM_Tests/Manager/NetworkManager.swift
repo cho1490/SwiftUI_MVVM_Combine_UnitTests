@@ -83,7 +83,6 @@ class NetworkManager {
                 .receive(on: RunLoop.main)
                 .sink(receiveCompletion: { (completion) in
                     if case let .failure(error) = completion {
-                        print(".failure(error)")
                         switch error {
                         case let decodingError as DecodingError:
                             promise(.failure(decodingError))
@@ -125,7 +124,7 @@ class NetworkManager {
             request.httpMethod = "GET"
             request.addValue(Define.KEY, forHTTPHeaderField: "X-Riot-Token")
             session.dataTaskPublisher(for: request)
-                .tryMap{ (data, response) -> Data in
+                .tryMap { (data, response) -> Data in
                     print("Data :: \(String(decoding: data, as: UTF8.self))")
                     guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                         throw NetworkError.responseError

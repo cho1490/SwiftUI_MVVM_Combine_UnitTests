@@ -33,15 +33,17 @@ extension ContentView {
                 if loadingSingleton.isLoading {
                     ProgressView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(.thinMaterial)
                 }
                 
                 switch toastSingleton.toastState {
                 case .NONE:
                     EmptyView()
                 default:
-                    ToastView()
-                        .position()
+                    VStack {
+                        Spacer()
+                        
+                        ToastView()
+                    }                    
                 }
             }
         }
