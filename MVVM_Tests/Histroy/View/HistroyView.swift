@@ -11,6 +11,8 @@ struct HistoryView: View {
     
     @StateObject var viewModel = HistoryViewModel()
     
+    var user: User
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -25,7 +27,7 @@ struct HistoryView: View {
         }
         .padding()
         .onAppear {
-            viewModel.getData(puuid: "")
+//            viewModel.getData(puuid: "")
         }
     }
     

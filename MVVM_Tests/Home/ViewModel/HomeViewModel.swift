@@ -11,13 +11,18 @@ class HomeViewModel: BaseViewModel {
             
     let version = "v4"
     
-    @Published var userName: String = ""
+    @Published var summonerName: String = ""
+    
     @Published var user: User?
+    @Published var isUser: Bool = false
            
     func getData() {
+        user = nil
+        isUser = false
+        
         loadingSingleton.loading()
         
-        let endPoint = "\(version)/summoners/by-name/\(userName)"
+        let endPoint = "\(version)/summoners/by-name/\(summonerName)"
         NetworkManager.shared.getSingleData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, type: User.self)
             .sink { [weak self] completion in
                 switch completion {
@@ -30,6 +35,7 @@ class HomeViewModel: BaseViewModel {
                 self?.loadingSingleton.complete()
             } receiveValue: { [weak self] user in
                 self?.user = user
+                self?.isUser = true
             }
             .store(in: &cancellables)
     }

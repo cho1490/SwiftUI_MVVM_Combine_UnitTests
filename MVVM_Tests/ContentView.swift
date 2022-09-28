@@ -22,7 +22,7 @@ struct ContentView: View {
 extension ContentView {
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color(.blue)
                     .ignoresSafeArea()
