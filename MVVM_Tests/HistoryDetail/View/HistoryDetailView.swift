@@ -10,6 +10,10 @@ import SwiftUI
 struct HistoryDetailView: View {
         
     @StateObject var viewModel = HistoryDetailViewModel()    
+        
+}
+
+extension HistoryDetailView {
     
     var body: some View {
         VStack {
