@@ -19,11 +19,24 @@ extension HistoryView {
     
     var body: some View {
         VStack {
+            VStack {
+                Text("Name : \(user.name)")
+                
+                Text("Level : \(user.summonerLevel)")
+            }
+            
             ScrollView {
                 LazyVStack {
-                    ForEach(viewModel.history, id: \.self) { value in
+                    ForEach(viewModel.history, id: \.self) { history in
                         NavigationLink(destination: HistoryDetailView()) {
-                            
+                            VStack {
+                                HStack {
+                                    Text("MatchID : \(history)")
+                                    
+                                    Spacer()
+                                }
+                            }
+                            .frame(height: 100)
                         }
                     }
                 }
@@ -31,7 +44,7 @@ extension HistoryView {
         }
         .padding()
         .onAppear {
-//            viewModel.getData(puuid: "")
+            viewModel.getData(puuid: user.puuid)
         }
     }
     
