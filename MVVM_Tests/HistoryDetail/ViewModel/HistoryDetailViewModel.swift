@@ -12,24 +12,30 @@ class HistoryDetailViewModel: BaseViewModel {
     let version = "v5"
         
     @Published var historyDetail: HistoryDetail?
+    @Published var isHistoryDetail: Bool = false
     
     func getData(matchId: String) {
+        historyDetail = nil
+        isHistoryDetail = false
+        
         loadingSingleton.loading()
         
         let endPoint = "\(version)/matches/\(matchId)"
         
-        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .summoner, endPoint: endPoint, type: HistoryDetail.self)
+        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, type: HistoryDetail.self)
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
+                    print("failure : \(error.localizedDescription)")
                     self?.toastSingleton.setState(.ERROR, error.localizedDescription)
                 case .finished:
                     self?.toastSingleton.setState(.INFORMATION, "성공!")
                 }
-                
+                                
                 self?.loadingSingleton.complete()
             } receiveValue: { [weak self] historyDetail in
                 self?.historyDetail = historyDetail
+                self?.isHistoryDetail = true
             }
             .store(in: &cancellables)
     }

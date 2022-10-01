@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE007FBA28E84AF000F2C570 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE007FB928E84AF000F2C570 /* View.swift */; };
+		DE007FBC28E84C7100F2C570 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE007FBB28E84C7100F2C570 /* LoadingView.swift */; };
 		DE0A696F28D5A77800AC621B /* MVVM_TestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A696E28D5A77800AC621B /* MVVM_TestsApp.swift */; };
 		DE0A697128D5A77800AC621B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A697028D5A77800AC621B /* HomeView.swift */; };
 		DE0A697328D5A77C00AC621B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0A697228D5A77C00AC621B /* Assets.xcassets */; };
@@ -21,7 +23,6 @@
 		DE0A69AF28D5C27400AC621B /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69AE28D5C27400AC621B /* HistoryDetailView.swift */; };
 		DE0A69B128D5C27C00AC621B /* HistoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B028D5C27C00AC621B /* HistoryDetailViewModel.swift */; };
 		DE0A69B328D5C4AA00AC621B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B228D5C4AA00AC621B /* ContentView.swift */; };
-		DE0A69B528D5C59B00AC621B /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B428D5C59B00AC621B /* HistoryItemView.swift */; };
 		DE0A69B728D6F58500AC621B /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69B628D6F58500AC621B /* Define.swift */; };
 		DE0A69BD28D700C300AC621B /* HistroyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69BC28D700C300AC621B /* HistroyView.swift */; };
 		DE0A69BF28D7010400AC621B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A69BE28D7010400AC621B /* HomeViewModel.swift */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE007FB928E84AF000F2C570 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DE007FBB28E84C7100F2C570 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DE0A696B28D5A77800AC621B /* MVVM_Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0A696E28D5A77800AC621B /* MVVM_TestsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_TestsApp.swift; sourceTree = "<group>"; };
 		DE0A697028D5A77800AC621B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -68,7 +71,6 @@
 		DE0A69AE28D5C27400AC621B /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
 		DE0A69B028D5C27C00AC621B /* HistoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewModel.swift; sourceTree = "<group>"; };
 		DE0A69B228D5C4AA00AC621B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		DE0A69B428D5C59B00AC621B /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
 		DE0A69B628D6F58500AC621B /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		DE0A69BC28D700C300AC621B /* HistroyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistroyView.swift; sourceTree = "<group>"; };
 		DE0A69BE28D7010400AC621B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -276,7 +278,6 @@
 		DE0A69BA28D7007400AC621B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE0A69B428D5C59B00AC621B /* HistoryItemView.swift */,
 				DE0A69BC28D700C300AC621B /* HistroyView.swift */,
 			);
 			path = View;
@@ -301,6 +302,7 @@
 		DE0A69C928E4417A00AC621B /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				DE007FBB28E84C7100F2C570 /* LoadingView.swift */,
 				DE0A69CA28E4418B00AC621B /* ToastView.swift */,
 			);
 			path = CustomView;
@@ -309,6 +311,7 @@
 		DE0A69CC28E4431C00AC621B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				DE007FB928E84AF000F2C570 /* View.swift */,
 				DE0A69CD28E4433500AC621B /* Text.swift */,
 			);
 			path = Extension;
@@ -450,13 +453,14 @@
 				DE0A69C628DC8AFC00AC621B /* BaseViewModel.swift in Sources */,
 				DE0A69C328DC89B200AC621B /* LoadingSingleton.swift in Sources */,
 				DE0A69AF28D5C27400AC621B /* HistoryDetailView.swift in Sources */,
+				DE007FBA28E84AF000F2C570 /* View.swift in Sources */,
 				DE0A69CE28E4433500AC621B /* Text.swift in Sources */,
 				DE0A69C128D7035000AC621B /* User.swift in Sources */,
-				DE0A69B528D5C59B00AC621B /* HistoryItemView.swift in Sources */,
 				DE0A699F28D5A9BD00AC621B /* History.swift in Sources */,
 				DE0A699D28D5A96600AC621B /* HistroyViewModel.swift in Sources */,
 				DE0A69B128D5C27C00AC621B /* HistoryDetailViewModel.swift in Sources */,
 				DE0A696F28D5A77800AC621B /* MVVM_TestsApp.swift in Sources */,
+				DE007FBC28E84C7100F2C570 /* LoadingView.swift in Sources */,
 				DE0A69B728D6F58500AC621B /* Define.swift in Sources */,
 				DE0A69AD28D5C26400AC621B /* HistoryDetail.swift in Sources */,
 				DE0A69A228D5A9FB00AC621B /* NetworkManager.swift in Sources */,

@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @StateObject var loadingSingleton = LoadingSingleton.shared
-    @StateObject var toastSingleton = ToastSingleton.shared
             
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -23,30 +20,9 @@ extension ContentView {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color(.blue)
-                    .ignoresSafeArea()
-                
-                HomeView()
-                    .navigationTitle("Search User")
-                
-                if loadingSingleton.isLoading {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
-                
-                switch toastSingleton.toastState {
-                case .NONE:
-                    EmptyView()
-                default:
-                    VStack {
-                        Spacer()
-                        
-                        ToastView()
-                    }                    
-                }
-            }
+            HomeView()
+                .navigationTitle("Search User")
         }
-    }
+    }    
     
 }

@@ -6,24 +6,25 @@
 //
 
 struct HistoryDetail: Decodable, Identifiable, Hashable {
-    var id: Int?
-    var fare: Int?
-    var stops: Int?
-    var flightNumber: String?
-    var company: String?
-    var departure: String?
-    var arrival: String?
-    var duration: String?
-    var source: String?
-    var destination: String?
-    var sourceCode: String?
-    var destinationCode: String?
-    var sourceAirport: String?
-    var destinationAirport: String?
-    var baggage: String?
-    var checkin: String?
-    var cabin: String?
-    var fareType: String?
-    var cancellable: Bool?
-    var discountPercentage: Int?
+    var id: Int
+    var metadata: Metadata
+    var info: Info
+}
+
+struct Metadata: Decodable, Identifiable, Hashable {
+    var id: Int
+    var dataVersion: String
+    var matchId: String
+    var participants: [String]
+}
+
+struct Info: Decodable, Identifiable, Hashable {
+    var id: Int
+    var gameCreation: Double
+    var gameDuration: Double
+    var gameStartTimestamp: Double
+    var gameEndTimestamp: Double
+    var gameId: Double
+    var gameMode: String
+    var gameType: String
 }

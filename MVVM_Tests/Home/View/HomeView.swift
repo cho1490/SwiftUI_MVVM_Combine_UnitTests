@@ -20,6 +20,7 @@ extension HomeView {
         NavigationStack {
             VStack {
                 TextField("User Name", text: $viewModel.summonerName)
+                    .frame(maxWidth: .infinity)
                 
                 Spacer()
                 
@@ -28,12 +29,13 @@ extension HomeView {
                 }
             }
             .padding()
+            .makeMoreView()
         }
         .navigationDestination(isPresented: $viewModel.isUser) {
             if let user = viewModel.user {
                 HistoryView(user: user)
             }
-        }
+        }        
     }
     
 }

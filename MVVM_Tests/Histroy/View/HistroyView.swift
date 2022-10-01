@@ -28,7 +28,7 @@ extension HistoryView {
             ScrollView {
                 LazyVStack {
                     ForEach(viewModel.history, id: \.self) { history in
-                        NavigationLink(destination: HistoryDetailView()) {
+                        NavigationLink(destination: HistoryDetailView(matchId: history)) {
                             VStack {
                                 HStack {
                                     Text("MatchID : \(history)")
@@ -42,10 +42,11 @@ extension HistoryView {
                 }
             }
         }
-        .padding()
         .onAppear {
             viewModel.getData(puuid: user.puuid)
         }
+        .padding()
+        .makeMoreView()g
     }
     
 }

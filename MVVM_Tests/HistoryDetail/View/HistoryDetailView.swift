@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HistoryDetailView: View {
         
-    @StateObject var viewModel = HistoryDetailViewModel()    
+    @StateObject var viewModel = HistoryDetailViewModel()
+    
+    var matchId: String
         
 }
 
@@ -17,13 +19,30 @@ extension HistoryDetailView {
     
     var body: some View {
         VStack {
-            Text("HistoryDetailView")
+            Text("MatchId : \(matchId)")
+            
+            if viewModel.isHistoryDetail {
+                VStack {
+                    Text("GameMode : \(viewModel.historyDetail!.info.gameMode)")
+                    
+                    Text("GameType : \(viewModel.historyDetail!.info.gameType)")
+                    
+                    Text("GameId : \(viewModel.historyDetail!.info.gameId)")
+                    
+                    Text("gameStartTimestamp : \(viewModel.historyDetail!.info.gameStartTimestamp)")
+                    
+                    Text("gameEndTimestamp : \(viewModel.historyDetail!.info.gameEndTimestamp)")
+                }
+            }
+            
+            Spacer()
+        }
+        .onAppear {
+            viewModel.getData(matchId: matchId)
         }
         .padding()
-        .onAppear {
-            viewModel.getData(matchId: "")
-        }
-    }
+        .makeMoreView()
+    }    
     
 }
     
