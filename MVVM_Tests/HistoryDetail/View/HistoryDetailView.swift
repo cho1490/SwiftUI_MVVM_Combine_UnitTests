@@ -39,7 +39,7 @@ extension HistoryDetailView {
         }
         .onAppear {
             viewModel.getData(matchId: matchId)
-        }
+        }        
         .padding()
         .makeMoreView()
     }    

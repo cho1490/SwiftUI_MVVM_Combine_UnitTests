@@ -21,7 +21,7 @@ extension ContentView {
     var body: some View {
         NavigationStack {
             HomeView()
-                .navigationTitle("Search User")
+                .navigationTitle("HomeView")
         }
     }    
     

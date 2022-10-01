@@ -17,25 +17,23 @@ struct HomeView: View {
 extension HomeView {
 
     var body: some View {
-        NavigationStack {
-            VStack {
-                TextField("User Name", text: $viewModel.summonerName)
-                    .frame(maxWidth: .infinity)
-                
-                Spacer()
-                
-                Button("Get Data") {
-                    viewModel.getData()
-                }
+        VStack {
+            TextField("User Name", text: $viewModel.summonerName)
+                .frame(maxWidth: .infinity)
+            
+            Spacer()
+            
+            Button("Get Data") {
+                viewModel.getData()
             }
-            .padding()
-            .makeMoreView()
-        }
+        }        
+        .padding()
+        .makeMoreView()
         .navigationDestination(isPresented: $viewModel.isUser) {
             if let user = viewModel.user {
                 HistoryView(user: user)
             }
-        }        
+        }
     }
     
 }

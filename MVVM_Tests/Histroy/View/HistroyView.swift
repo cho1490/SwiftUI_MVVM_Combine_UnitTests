@@ -44,9 +44,9 @@ extension HistoryView {
         }
         .onAppear {
             viewModel.getData(puuid: user.puuid)
-        }
+        }        
         .padding()
-        .makeMoreView()g
+        .makeMoreView()
     }
     
 }
