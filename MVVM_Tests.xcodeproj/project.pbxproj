@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		DE007FBA28E84AF000F2C570 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE007FB928E84AF000F2C570 /* View.swift */; };
 		DE007FBC28E84C7100F2C570 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE007FBB28E84C7100F2C570 /* LoadingView.swift */; };
+		DE007FC328E9672000F2C570 /* MVVM_TestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A697F28D5A77C00AC621B /* MVVM_TestsTests.swift */; };
 		DE0A696F28D5A77800AC621B /* MVVM_TestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A696E28D5A77800AC621B /* MVVM_TestsApp.swift */; };
 		DE0A697128D5A77800AC621B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A697028D5A77800AC621B /* HomeView.swift */; };
 		DE0A697328D5A77C00AC621B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0A697228D5A77C00AC621B /* Assets.xcassets */; };
 		DE0A697628D5A77C00AC621B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0A697528D5A77C00AC621B /* Preview Assets.xcassets */; };
-		DE0A698028D5A77C00AC621B /* MVVM_TestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A697F28D5A77C00AC621B /* MVVM_TestsTests.swift */; };
 		DE0A698A28D5A77C00AC621B /* MVVM_TestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A698928D5A77C00AC621B /* MVVM_TestsUITests.swift */; };
 		DE0A698C28D5A77C00AC621B /* MVVM_TestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A698B28D5A77C00AC621B /* MVVM_TestsUITestsLaunchTests.swift */; };
 		DE0A699D28D5A96600AC621B /* HistroyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0A699C28D5A96600AC621B /* HistroyViewModel.swift */; };
@@ -54,6 +54,7 @@
 /* Begin PBXFileReference section */
 		DE007FB928E84AF000F2C570 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DE007FBB28E84C7100F2C570 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DE007FBD28E9658600F2C570 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		DE0A696B28D5A77800AC621B /* MVVM_Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0A696E28D5A77800AC621B /* MVVM_TestsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_TestsApp.swift; sourceTree = "<group>"; };
 		DE0A697028D5A77800AC621B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 		DE0A697E28D5A77C00AC621B /* MVVM_TestsTests */ = {
 			isa = PBXGroup;
 			children = (
+				DE007FBD28E9658600F2C570 /* HomeViewModelTest.swift */,
 				DE0A697F28D5A77C00AC621B /* MVVM_TestsTests.swift */,
 			);
 			path = MVVM_TestsTests;
@@ -474,7 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE0A698028D5A77C00AC621B /* MVVM_TestsTests.swift in Sources */,
+				DE007FC328E9672000F2C570 /* MVVM_TestsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

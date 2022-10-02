@@ -26,7 +26,7 @@ extension HomeView {
             Button("Get Data") {
                 viewModel.getData()
             }
-        }        
+        }
         .padding()
         .makeMoreView()
         .navigationDestination(isPresented: $viewModel.isUser) {
