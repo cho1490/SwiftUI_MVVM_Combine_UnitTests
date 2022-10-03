@@ -10,7 +10,7 @@ struct User: Decodable, Identifiable, Hashable {
     var accountId: String
     var profileIconId: Int
 //    var revisionDate: Double
-    var name: String
+    var name: String 
     var puuid: String
     var summonerLevel: Int
 }
