@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import SwiftUI
 @testable import MVVM_Tests
 
 class HomeViewModelTests: XCTestCase {
@@ -20,7 +21,9 @@ class HomeViewModelTests: XCTestCase {
         viewModel = nil
     }
     
-    func test1() {
+    func testGetUserData() {
+        
+        
         viewModel?.getData()
     }
     
