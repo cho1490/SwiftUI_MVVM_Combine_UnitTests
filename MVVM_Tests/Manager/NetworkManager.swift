@@ -28,14 +28,14 @@ enum NetworkError: Error {
     case unknown
 }
 
-class NetworkManager {
+protocol NetworkManagerDelegate {
+    func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String]?, type: T.Type) -> Future<T, Error>
     
-    static let shared = NetworkManager()
+    func getMultipleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String]?, type: T.Type) -> Future<[T], Error>
+}
+
+class NetworkManager: NetworkManagerDelegate {
             
-    private init() {
-        
-    }
-    
     // Combine AnyCancellable
     // A type-erasing cancellable object that executes a provided closure when canceled.
     private var cancellables = Set<AnyCancellable>()
@@ -47,18 +47,20 @@ class NetworkManager {
         // code
      }
      */
-    func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<T, Error> {        
+    func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String]?, type: T.Type) -> Future<T, Error> {
         return Future<T, Error> { [weak self] promise in
             var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
             
-            if !parameters.isEmpty {
-                urlString += "?"
-                for param in parameters {
-                    urlString += "\(param.key)=\(param.value)&"
-                }
-                
-                if urlString.last == "&" {
-                    urlString.removeLast()
+            if let p = parameters {
+                if !p.isEmpty {
+                    urlString += "?"
+                    for param in p {
+                        urlString += "\(param.key)=\(param.value)&"
+                    }
+                    
+                    if urlString.last == "&" {
+                        urlString.removeLast()
+                    }
                 }
             }
             
@@ -100,18 +102,20 @@ class NetworkManager {
         
         
         
-    func getMultipleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String] = [:], id: Int? = nil, type: T.Type) -> Future<[T], Error> {
+    func getMultipleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String]?, type: T.Type) -> Future<[T], Error> {
         return Future<[T], Error> { [weak self] promise in
             var urlString = "https://\(startPoint.rawValue).api.riotgames.com/lol/\(middlePoint.rawValue)/\(endPoint)"
             
-            if !parameters.isEmpty {
-                urlString += "?"
-                for param in parameters {
-                    urlString += "\(param.key)=\(param.value)&"
-                }
-                
-                if urlString.last == "&" {
-                    urlString.removeLast()
+            if let p = parameters {
+                if !p.isEmpty {
+                    urlString += "?"
+                    for param in p {
+                        urlString += "\(param.key)=\(param.value)&"
+                    }
+                    
+                    if urlString.last == "&" {
+                        urlString.removeLast()
+                    }
                 }
             }
             

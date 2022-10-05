@@ -15,12 +15,11 @@ class LoadingSingleton: ObservableObject {
     private init() { }
     
     func loading() {
-        print("loading!!")
         isLoading = true
     }
     
     func complete() {
-        print("complete!!")
+
         isLoading = false
     }
     

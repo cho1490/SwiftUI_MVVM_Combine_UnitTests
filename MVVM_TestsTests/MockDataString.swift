@@ -11,7 +11,7 @@ class MockData {
     """
     {
     "id":"-rWwyyYo23TUCMN8KV4K2G_bF_lw5bVtthaO2duVQchoUI4",
-    "accountId":"-0hN_-owfYNorpPswWFQrCTeGBomGZ850gmtXvWykjqyzYg,
+    "accountId":"-0hN_-owfYNorpPswWFQrCTeGBomGZ850gmtXvWykjqyzYg",
     "puuid":"w11f1vxwmiUdHj04AXcydzNyslacNNayFIGWdlA40GOMAYIJfHjbfQx4WfITz4caEHSM3klb-eEj0A",
     "name":"DeepredK",
     "profileIconId":22,

@@ -14,7 +14,7 @@ class HomeViewModelTests: XCTestCase {
     var viewModel: HomeViewModel!
     
     override func setUp() {
-        viewModel = HomeViewModel()
+        viewModel = HomeViewModel(networkManager: MockNetworkManager())
     }
     
     override func tearDown() {
@@ -22,9 +22,13 @@ class HomeViewModelTests: XCTestCase {
     }
     
     func testGetUserData() {
+        viewModel.getData()
+
+        XCTAssertEqual(ToastState.INFORMATION, viewModel.toastSingleton.toastState)
+        XCTAssertEqual(ToastState.ERROR, viewModel.toastSingleton.toastState)
+        print(viewModel.toastSingleton.toastString)        
         
-        
-        viewModel?.getData()
+        XCTAssertNotNil(viewModel.user)
     }
     
 }

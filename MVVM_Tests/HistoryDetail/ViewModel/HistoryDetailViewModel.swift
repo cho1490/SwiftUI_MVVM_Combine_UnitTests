@@ -14,6 +14,11 @@ class HistoryDetailViewModel: BaseViewModel {
     @Published var historyDetail: HistoryDetail?
     @Published var isHistoryDetail: Bool = false
     
+    let networkManager: NetworkManagerDelegate
+    init(networkManager: NetworkManagerDelegate = NetworkManager()) {
+        self.networkManager = networkManager
+    }
+    
     func getData(matchId: String) {
         historyDetail = nil
         isHistoryDetail = false
@@ -22,7 +27,7 @@ class HistoryDetailViewModel: BaseViewModel {
         
         let endPoint = "\(version)/matches/\(matchId)"
         
-        NetworkManager.shared.getSingleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, type: HistoryDetail.self)
+        networkManager.getSingleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: nil, type: HistoryDetail.self)
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):

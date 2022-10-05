@@ -13,6 +13,11 @@ class HistoryViewModel: BaseViewModel {
                 
     @Published var history = [String]()
     
+    let networkManager: NetworkManagerDelegate
+    init(networkManager: NetworkManagerDelegate = NetworkManager()) {
+        self.networkManager = networkManager
+    }
+    
     func getData(puuid: String) {
         history = []
         
@@ -25,7 +30,7 @@ class HistoryViewModel: BaseViewModel {
             "count": "20"
         ]
         
-        NetworkManager.shared.getMultipleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: parameters, type: String.self)
+        networkManager.getMultipleData(startPoint: .asia, middlePoint: .match, endPoint: endPoint, parameters: parameters, type: String.self)
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
