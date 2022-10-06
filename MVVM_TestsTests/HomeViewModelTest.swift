@@ -26,7 +26,7 @@ class HomeViewModelTests: XCTestCase {
 
         XCTAssertEqual(ToastState.INFORMATION, viewModel.toastSingleton.toastState)
         XCTAssertEqual(ToastState.ERROR, viewModel.toastSingleton.toastState)
-        print(viewModel.toastSingleton.toastString)        
+        print(viewModel.toastSingleton.toastString)          
         
         XCTAssertNotNil(viewModel.user)
     }
