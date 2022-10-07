@@ -10,19 +10,37 @@ import XCTest
 
 class HomeViewModelTests: XCTestCase {
    
+    var mockViewModel: HomeViewModel!
     var viewModel: HomeViewModel!
     
     override func setUpWithError() throws {
-        viewModel = HomeViewModel(networkManager: MockNetworkManager(mockData: MockData.USER))
+        mockViewModel = HomeViewModel(networkManager: MockNetworkManager(mockData: MockData.USER))
+        viewModel = HomeViewModel(networkManager: NetworkManager())
     }
     
     override func tearDownWithError() throws {
-        viewModel = nil
+        mockViewModel = nil
     }
+            
+    func testGetMockData_WhenMockDataDecoded_ShouldReturnTrue() {
+        mockViewModel.getData()
+        XCTAssertTrue(mockViewModel.isUser)
+    }
+    
+    func testGetData_WhenNetworkingSuccess_ShouldReturnTrue() {
+        let expectation = XCTestExpectation(description: "fetches data and updates properties.")
         
-    func testGetUserData_WhenNetworkingSuccess_ShouldReturnTrue() {
+        viewModel.summonerName = "Deepredk"
         viewModel.getData()
-        XCTAssertTrue(viewModel.isUser)
+        
+        let asyncWaitDuration = 3.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + asyncWaitDuration) {
+            expectation.fulfill()
+            
+            XCTAssertTrue(self.viewModel.isUser)
+        }
+        
+        wait(for: [expectation], timeout: asyncWaitDuration)    
     }
     
 }
