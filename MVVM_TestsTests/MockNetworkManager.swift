@@ -26,7 +26,7 @@ class MockNetworkManager: NetworkManagerDelegate {
                     }
                 }
             } catch {
-                print("error : \(error.localizedDescription)")
+                print("error !!! \(error.localizedDescription)")
                 promise(.failure(error))
             }
         }
@@ -41,7 +41,7 @@ class MockNetworkManager: NetworkManagerDelegate {
                     }
                 }
             } catch {
-                print("error : \(error.localizedDescription)")
+                print("error !!! \(error.localizedDescription)")
                 promise(.failure(error))
             }
         }
