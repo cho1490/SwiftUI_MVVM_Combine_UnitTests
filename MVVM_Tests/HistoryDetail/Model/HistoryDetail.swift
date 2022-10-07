@@ -6,20 +6,20 @@
 //
 
 struct HistoryDetail: Decodable, Identifiable, Hashable {
-    var id: Int
+    var id: Int?
     var metadata: Metadata
     var info: Info
 }
 
 struct Metadata: Decodable, Identifiable, Hashable {
-    var id: Int
+    var id: Int?
     var dataVersion: String
     var matchId: String
     var participants: [String]
 }
 
 struct Info: Decodable, Identifiable, Hashable {
-    var id: Int
+    var id: Int?
     var gameCreation: Double
     var gameDuration: Double
     var gameStartTimestamp: Double

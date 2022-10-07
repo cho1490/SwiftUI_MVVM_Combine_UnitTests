@@ -25,7 +25,7 @@ final class HistoryDetailViewModelTests: XCTestCase {
         
         XCTAssertEqual(ToastState.INFORMATION, viewModel.toastSingleton.toastState)
         //        XCTAssertEqual(ToastState.ERROR, viewModel.toastSingleton.toastState)
-        print(viewModel.toastSingleton.toastString)
+        print(viewModel.toastSingleton.toastString)        
         
         XCTAssertTrue(viewModel.isHistoryDetail)
     }
