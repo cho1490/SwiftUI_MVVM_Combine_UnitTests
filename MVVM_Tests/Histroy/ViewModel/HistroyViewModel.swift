@@ -12,6 +12,7 @@ class HistoryViewModel: BaseViewModel {
     let version = "v5"
                 
     @Published var history = [String]()
+    @Published var isHistory: Bool = false
     
     let networkManager: NetworkManagerDelegate
     init(networkManager: NetworkManagerDelegate = NetworkManager()) {
@@ -20,6 +21,7 @@ class HistoryViewModel: BaseViewModel {
     
     func getData(puuid: String) {
         history = []
+        isHistory = false
         
         loadingSingleton.loading()
         
@@ -42,6 +44,7 @@ class HistoryViewModel: BaseViewModel {
                 self?.loadingSingleton.complete()
             } receiveValue: { [weak self] history in
                 self?.history = history
+                self?.isHistory = true
             }
             .store(in: &cancellables)
     }

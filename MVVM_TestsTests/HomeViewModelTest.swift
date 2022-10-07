@@ -6,18 +6,17 @@
 //
 
 import XCTest
-import SwiftUI
 @testable import MVVM_Tests
 
 class HomeViewModelTests: XCTestCase {
    
     var viewModel: HomeViewModel!
     
-    override func setUp() {
-        viewModel = HomeViewModel(networkManager: MockNetworkManager())
+    override func setUpWithError() throws {
+        viewModel = HomeViewModel(networkManager: MockNetworkManager(mockData: MockData.USER))
     }
     
-    override func tearDown() {
+    override func tearDownWithError() throws {
         viewModel = nil
     }
     
@@ -25,10 +24,10 @@ class HomeViewModelTests: XCTestCase {
         viewModel.getData()
 
         XCTAssertEqual(ToastState.INFORMATION, viewModel.toastSingleton.toastState)
-        XCTAssertEqual(ToastState.ERROR, viewModel.toastSingleton.toastState)
-        print(viewModel.toastSingleton.toastString)          
+//        XCTAssertEqual(ToastState.ERROR, viewModel.toastSingleton.toastState)
+        print(viewModel.toastSingleton.toastString)
         
-        XCTAssertNotNil(viewModel.user)
+        XCTAssertTrue(viewModel.isUser)
     }
     
 }
