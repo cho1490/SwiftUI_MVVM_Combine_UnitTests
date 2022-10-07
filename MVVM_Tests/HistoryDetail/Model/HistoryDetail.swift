@@ -5,21 +5,18 @@
 //  Created by 조상현 on 2022/09/17.
 //
 
-struct HistoryDetail: Decodable, Identifiable, Hashable {
-    var id: Int?
+struct HistoryDetail: Decodable {
     var metadata: Metadata
     var info: Info
 }
 
-struct Metadata: Decodable, Identifiable, Hashable {
-    var id: Int?
+struct Metadata: Decodable {
     var dataVersion: String
     var matchId: String
     var participants: [String]
 }
 
-struct Info: Decodable, Identifiable, Hashable {
-    var id: Int?
+struct Info: Decodable {    
     var gameCreation: Double
     var gameDuration: Double
     var gameStartTimestamp: Double
