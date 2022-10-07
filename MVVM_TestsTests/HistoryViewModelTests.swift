@@ -19,14 +19,9 @@ class HistoryViewModelTests: XCTestCase {
     override func tearDownWithError() throws {
         viewModel = nil
     }
-    
-    func testGetHistoryData() {
-        viewModel.getData(puuid: "")
         
-        XCTAssertEqual(ToastState.INFORMATION, viewModel.toastSingleton.toastState)
-        //        XCTAssertEqual(ToastState.ERROR, viewModel.toastSingleton.toastState)
-        print(viewModel.toastSingleton.toastString)
-        
+    func testGetHistoryData_WhenNetworkingSuccess_ShouldReturnTrue() {
+        viewModel.getData(puuid: "")        
         XCTAssertTrue(viewModel.isHistory)
     }
 

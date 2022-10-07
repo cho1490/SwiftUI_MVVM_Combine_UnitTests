@@ -19,14 +19,9 @@ class HomeViewModelTests: XCTestCase {
     override func tearDownWithError() throws {
         viewModel = nil
     }
-    
-    func testGetUserData() {
-        viewModel.getData()
-
-        XCTAssertEqual(ToastState.INFORMATION, viewModel.toastSingleton.toastState)
-//        XCTAssertEqual(ToastState.ERROR, viewModel.toastSingleton.toastState)
-        print(viewModel.toastSingleton.toastString)
         
+    func testGetUserData_WhenNetworkingSuccess_ShouldReturnTrue() {
+        viewModel.getData()
         XCTAssertTrue(viewModel.isUser)
     }
     
