@@ -11,8 +11,10 @@ import Combine
 
 class MockNetworkManager: NetworkManagerDelegate {
     
-    let mockData: Data!
+    let decoder = JSONDecoder()
     
+    let mockData: Data!
+        
     init(mockData: Data) {
         self.mockData = mockData
     }
@@ -47,9 +49,4 @@ class MockNetworkManager: NetworkManagerDelegate {
         }
     }
     
-    
-    let decoder = JSONDecoder()
-
-    
 }
-

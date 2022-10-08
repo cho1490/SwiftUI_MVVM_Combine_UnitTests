@@ -28,12 +28,6 @@ enum NetworkError: Error {
     case unknown
 }
 
-protocol NetworkManagerDelegate {
-    func getSingleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String]?, type: T.Type) -> Future<T, Error>
-    
-    func getMultipleData<T: Decodable>(startPoint: StartPoint, middlePoint: MiddlePoint, endPoint: String, parameters: [String: String]?, type: T.Type) -> Future<[T], Error>
-}
-
 class NetworkManager: NetworkManagerDelegate {
             
     // Combine AnyCancellable

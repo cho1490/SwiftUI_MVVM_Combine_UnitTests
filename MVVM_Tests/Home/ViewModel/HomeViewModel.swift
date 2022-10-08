@@ -27,7 +27,8 @@ class HomeViewModel: BaseViewModel {
         
         loadingSingleton.loading()
         
-        let endPoint = "\(version)/summoners/by-name/\(summonerName)"        
+        let endPoint = "\(version)/summoners/by-name/\(summonerName)"
+        
         networkManager.getSingleData(startPoint: .kr, middlePoint: .summoner, endPoint: endPoint, parameters: nil, type: User.self)
             .sink { [weak self] completion in
                 switch completion {
